@@ -14,9 +14,11 @@ https://www.npmjs.com/package/@aws-sdk/client-dynamodb
 npm install @aws-sdk/client-dynamodb
 
 # Using local version of dynamoDB with CLI
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.UsageNotes.html
 Inside dynamodb_local_latest folder : aws dynamodb list-tables --endpoint-url http://localhost:8000
 # CLI commands - don't reallly need because of postman... but still
 To list tables: aws dynamodb list-tables --endpoint-url http://localhost:8000
 To scan table: aws dynamodb scan --endpoint-url http://localhost:8000 --table-name "FormulaDatabase" 
 If I want to put in a file: --output json > items.json
+

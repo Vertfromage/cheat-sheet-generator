@@ -51,7 +51,6 @@ const queryFormulasByName = async (req, res) => {
 const createFormula = async (req, res) => {
     const {name, formula, tags} = req.body; // destructuring
     id = AWS.util.uuid.v4()
-    console.log(typeof(tags))
 
     // add doc to db
     try{
