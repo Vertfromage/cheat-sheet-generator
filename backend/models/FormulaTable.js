@@ -18,8 +18,8 @@ const FormulasSchema = new Schema({
     required: true
   },
   tags: {
-    type: Array,
-    default: []
+    type : Array,
+    schema : [String]
   }
 
   // dynamoose automatically adds createdAt and updatedAt because timestamp is set to true

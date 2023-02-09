@@ -26,7 +26,7 @@ router.post('/', createFormula)
 router.delete('/:id', deleteFormula)
 
 // UPDATE a Formula
-router.patch('/:id', updateFormula)
+router.patch('/', updateFormula)
 
 
 module.exports = router

@@ -51,8 +51,7 @@ const queryFormulasByName = async (req, res) => {
 const createFormula = async (req, res) => {
     const {name, formula, tags} = req.body; // destructuring
     id = AWS.util.uuid.v4()
-    console.log("created id = "+id)
-    console.log(tags)
+    console.log(typeof(tags))
 
     // add doc to db
     try{
@@ -64,19 +63,15 @@ const createFormula = async (req, res) => {
     }
 }
 
-// delete a Formula
+// delete a Formula - always returns 200, if it doesn't find the id it considers task complete.
 const deleteFormula = async (req, res) => {
     const {id} = req.params
-
-    if(typeof(id)!=String){
-        return res.status(404).json({"error": 'No such Formula'})
-    }
 
     try{
         const Formula = await FormulaTable.delete(id)
         return res.status(200).json(Formula)
     }catch(error){
-        return res.status(400).jsong({"error": 'No such Formula'})
+        return res.status(400).json({"error": error.message})
     }
 }
 
@@ -93,7 +88,7 @@ const updateFormula = async (req,res) => {
         })
         return res.status(200).json(Formula)
     }catch(error){
-        return res.status(400).jsong({"error": "No luck"})
+        return res.status(400).json({"error": error.message})
     }
 }
 
