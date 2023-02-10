@@ -9,6 +9,10 @@ const FormulaTable = require("../models/FormulaTable")
 // get a single Formula
 const getFormula = async (req, res) => {
     const {id} = req.params
+    // checking to make sure all variables are there.
+    if(!id){
+        return res.status(400).json({"error": 'No id attached'})
+    }
 
     try {
         const Formula = await FormulaTable.get(id)
@@ -16,32 +20,38 @@ const getFormula = async (req, res) => {
         res.status(200).json(Formula)
     } catch (error) {
         console.error(error);
-        return res.status(404).json({"error": 'No such Formula'})
+        return res.status(404).json({"error": error.message})
     }
 }
 
 // get a multiple Formulas - scan by default returns every item, but use filters to get specific sets
 // Its not a efficient as querry when using filters.
 const getAllFormulas = async (req, res) => {
-    const {name} = req.params
+    
     try{
         const Formulas = await FormulaTable.scan().exec()
         return res.status(200).json(Formulas)
     }catch(error){
         console.error(error);
-        return res.status(404).json({"error": "Can't get all formulas"})
+        return res.status(404).json({"error": error.message})
     }
 }
 
 // Scans by name - Query is more efficient than scan
 const queryFormulasByName = async (req, res) => {
     const {name} = req.params
+
+    // checking to make sure all variables are there.
+    if(!name){
+        return res.status(400).json({"error": 'No name attached'})
+    }
+    
     try{
         const Formulas = await FormulaTable.query().filter("name").eq(name).exec()
         return res.status(200).json(Formulas)
     }catch(error){
         console.error(error);
-        return res.status(404).json({"error": "Can't find that formula"})
+        return res.status(404).json({"error": error.message})
     }
 }
 
@@ -50,6 +60,11 @@ const queryFormulasByName = async (req, res) => {
 // create new Formula
 const createFormula = async (req, res) => {
     const {name, formula, tags} = req.body; // destructuring
+
+    if(!name || !formula){
+        return res.status(400).json({"error": 'Missing variables! Need name and formula'})
+    }
+
     id = AWS.util.uuid.v4()
 
     // add doc to db
@@ -77,6 +92,10 @@ const deleteFormula = async (req, res) => {
 // update a Formula
 const updateFormula = async (req,res) => {
     const {id, name, formula, tags} = req.body; // destructuring
+
+    if(!id||!name || !formula){
+        return res.status(400).json({"error": 'Missing variables! Need id, name and formula'})
+    }
 
     try{
         const Formula = await FormulaTable.update({

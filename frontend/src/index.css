@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+:root {
+  --primary: blue; 
+  --error: red;
+}
+
 body {
+  background: url(https://upload.wikimedia.org/wikipedia/commons/3/34/Spirale_Ulam_150.jpg);
+  background-size: cover;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Raleway',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +19,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.home{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1px
+}
+
+.FormulaBlock {
+  background-color: aquamarine;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 30px;
+}
+
+.FormulaBlock h4 {
+  margin: 0 0 10px 0;
+  font-size: 2em;
+  color: var(--primary);
 }

@@ -16,6 +16,7 @@ npm install @aws-sdk/client-dynamodb
 # Using local version of dynamoDB with CLI
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.UsageNotes.html
+java -D"java.library.path=./DynamoDBLocal_lib" -jar DynamoDBLocal.jar
 Inside dynamodb_local_latest folder : aws dynamodb list-tables --endpoint-url http://localhost:8000
 # CLI commands - don't reallly need because of postman... but still
 To list tables: aws dynamodb list-tables --endpoint-url http://localhost:8000

@@ -7,7 +7,7 @@ import React from 'react'
 const Narbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="static" sx={{backgroundColor:'plum'}}>
+    <AppBar position="static" >
     <Toolbar>
     <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
     Cheat Sheet Generator
