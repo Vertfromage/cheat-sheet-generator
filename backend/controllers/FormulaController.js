@@ -1,7 +1,6 @@
 // This is my controller, this is what the routes use to do stuff with the database
 
 const AWS = require('aws-sdk')
-const dynamoose = require('dynamoose')
 
 // Import my model
 const FormulaTable = require("../models/FormulaTable")
@@ -66,6 +65,8 @@ const createFormula = async (req, res) => {
     }
 
     id = AWS.util.uuid.v4()
+
+
 
     // add doc to db
     try{

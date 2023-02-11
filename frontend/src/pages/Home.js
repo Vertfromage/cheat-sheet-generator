@@ -1,15 +1,16 @@
-import { MathJax } from "better-react-mathjax"
+
 import { Container } from "@mui/material"
-import { useEffect } from "react"
-import FormulaBlock from "../components/FormulaBlock"
 import FormulaForm from "../components/FormulaForm"
+import FormulasList from "../components/FormulasList"
 import { useFormulasContext } from "../hooks/useFormulasContext"
+import { useEffect } from "react"
+import FormulasPage from "../components/FormulaPage"
+import MathjaxLogo from "../components/MathjaxLogo"
 
 const Home = () => {
-    // Usaing global state, destructuring to get formulas (state) and dispatch (formula for updating)
-    const {formulas, dispatch} = useFormulasContext()
 
-    // This only gets called when the page first loads, because of the empty []
+    // Loading all formulas into state
+    const {dispatch} = useFormulasContext()
     useEffect(()=>{
         const fetchFormulas = async ()=>{
             const response = await fetch('/api/formulas') // ToDo update for production - teporarily working becuase of proxy in the package.json
@@ -20,23 +21,19 @@ const Home = () => {
             }
         }
         fetchFormulas()
-    },[])
+    },[dispatch])
+         
 
     return (
-        
         <div className="home">
-        <MathJax>
         <Container maxWidth="md" >
-            <h2>Under construction</h2>
-            <div className="Formulas">
-                {formulas && formulas.map((formula)=>(
-                    <FormulaBlock key={formula.id} formula={formula}/>
-                ))}
-            </div>
+        <FormulasPage/>
         </Container>
-        </MathJax>
         <Container>
+        <h4>Formulas List</h4>
+        <FormulasList/>
         <FormulaForm/>
+        <MathjaxLogo/>
         </Container>
         </div>
         

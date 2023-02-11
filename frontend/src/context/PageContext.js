@@ -3,20 +3,20 @@ import { createContext, useReducer } from "react";
 // had to install dispatch to make this work: npm install dispatch
 // This is basic - full tutorial on context to do later learn more : https://www.youtube.com/watch?v=6RhOzQciVwI&list=PL4cUxeGkcC9hNokByJilPg5g9m2APUePI&index=1&t=0s
 // Allows the rest of the app to have access formulasContext
-export const formulasContext = createContext()
+export const pageContext = createContext()
 
-export const formulasReducer = (state, action) => {
+export const pageReducer = (state, action) => {
     switch(action.type){
-        case 'SET_FORMULAS':
+        case 'SET_PAGE_FORMULAS':
             return {
                 formulas: action.payload
             }
-        case 'CREATE_FORMULA':
+        case 'CREATE_PAGE_FORMULA':
             return {
                 // ... spreads the previous state which is an array of pre-existing formula objects
                 formulas: [action.payload, ...state.formulas]
             }
-        case 'DELETE_FORMULA':
+        case 'DELETE_PAGE_FORMULA':
             return{
                 // get rid of workout we deleted from our state using filter
                 formulas: state.formulas.filter((f)=>f.id !=action.payload.id)
@@ -26,18 +26,18 @@ export const formulasReducer = (state, action) => {
 }
 
 // children represents whatever it wraps
-export const FormulasContextProvider = ({ children }) => {
+export const PageContextProvider = ({ children }) => {
     // like useState but more powerful has a reducer function
-    const [state, dispatch] = useReducer(formulasReducer, {
+    const [state, dispatchPage] = useReducer(pageReducer, {
         // Initial value for state
-        formulas: null
+        formulas: []
     })
     // how to call dispatch
     // dispatch({type: 'CREATE_FORMULA', payload:[{},{}]})
 
      return (
-        <formulasContext.Provider value={{...state, dispatch}}>
+        <pageContext.Provider value={{...state, dispatchPage}}>
             {children}
-        </formulasContext.Provider>
+        </pageContext.Provider>
      )
 }

@@ -54,6 +54,7 @@ const FormulaForm = () => {
 
   return (
     <div className='FormulaForm'>
+        <h4>Add a Formula</h4>
         <form className='create'>
         <FormGroup>
         <TextField 
@@ -65,6 +66,7 @@ const FormulaForm = () => {
             onChange={handleNameChange}
             value={name}
             required
+            autoComplete='off'
         >
         </TextField>
         <TextField 
@@ -75,6 +77,7 @@ const FormulaForm = () => {
             margin ='normal'
             onChange={handleFormulaChange}
             value={formula}
+            autoComplete='off'
             multiline
             required
         ></TextField>
@@ -84,12 +87,13 @@ const FormulaForm = () => {
             color="secondary"
             focused
             margin ='normal'
+            autoComplete='off'
             onChange={handleTagsChange}
             value={tags}
             multiline
         ></TextField>
         
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button variant="contained" color="secondary" onClick={handleSubmit}>Submit</Button>
         <FormLabel error={true}>{error}</FormLabel>
         </FormGroup>
         </form>
