@@ -41,6 +41,8 @@ https://stackoverflow.com/questions/50081983/searching-on-array-items-on-a-dynam
 - Add text blocks
 - Printable Pages
 - Only admin should be able to globally delete a formula
+- Resize to fit on 1 or 2 pages.
+- allow code snipets too. <code></code>
 
 
 # Deluxe Features
@@ -58,3 +60,5 @@ https://stackoverflow.com/questions/50081983/searching-on-array-items-on-a-dynam
 - CloudSearch is better for searching, if it gets popular
 
 
+# printing
+https://pptr.dev/

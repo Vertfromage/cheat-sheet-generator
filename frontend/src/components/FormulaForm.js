@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {FormGroup, TextField, Button, FormLabel} from '@mui/material';
+import {FormGroup, TextField, Button, FormLabel, Grid, Container} from '@mui/material';
 import { useFormulasContext } from "../hooks/useFormulasContext"
 
 const FormulaForm = () => {
@@ -54,7 +54,6 @@ const FormulaForm = () => {
 
   return (
     <div className='FormulaForm'>
-        <h4>Add a Formula</h4>
         <form className='create'>
         <FormGroup>
         <TextField 

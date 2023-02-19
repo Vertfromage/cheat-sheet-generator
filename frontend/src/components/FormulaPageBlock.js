@@ -18,21 +18,34 @@ const FormulaPageBlock = (props) =>{
 
     if(props.edit){
     return (
-        <MathJax>
-        <div className="FormulaPageBlock">
+        <div 
+            className="FormulaPageBlock"
+            >
             { title && <h4>{formula.name}</h4>}
-            <p> {formula.formula}</p>
-            <span className="material-symbols-rounded" onClick={handleDeleteClick}>delete</span> 
-            <span className="material-symbols-rounded" onClick={handleTitleClick}>Title</span> 
+            <p>
+            <MathJax hideUntilTypeset={"every"}
+                inline
+                dynamic 
+            >
+                {formula.formula}
+            </MathJax>
+            </p>
+            <span className="material-symbols-rounded span-buttons" onClick={handleDeleteClick}>delete</span> 
+            <span className="material-symbols-rounded span-buttons" onClick={handleTitleClick}>Title</span> 
         </div>
-        </MathJax>
     )
 }else{
     return(
         <MathJax>
         <div className="FormulaPageBlock">
             { title && <h4>{formula.name}</h4>}
-            <p> {formula.formula}</p>
+            <p> 
+            <MathJax hideUntilTypeset={"every"}
+                inline
+                dynamic 
+            >
+                {formula.formula}
+            </MathJax></p>
         </div>
         </MathJax>
     )

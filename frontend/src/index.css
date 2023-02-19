@@ -20,11 +20,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.home{
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 1px
-}
 
 .FormulaDisplayBlock {
   background-color: aquamarine;
@@ -39,7 +34,7 @@ code {
   color: var(--primary);
 }
 
-.FormulaDisplayBlock span {
+.span-buttons{
   cursor: pointer;
   background: #f1f1f1;
   border-radius: 50%;
@@ -47,22 +42,15 @@ code {
   color: #333;
 }
 
-.FormulaPageBlock span {
-  cursor: pointer;
-  background: #f1f1f1;
-  border-radius: 50%;
-  padding: 5px;
-  color: #333;
-}
 
 .mathjax {
-  float: center;
   margin-top: 20px;
 }
 
 
 .FormulasList {
-  max-height: 500px;
+  max-height: 200px;
+  max-width: 300px;
   overflow-x: hidden;
   overflow-y: auto;
 }

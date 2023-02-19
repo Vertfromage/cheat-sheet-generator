@@ -7,14 +7,18 @@ import { MathJaxContext } from "better-react-mathjax"
 import Home from './pages/Home'
 import Navbar from './components/Navbar';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Test from './components/Test';
 
 
 function App() {
   // config for MathJaxContext  
+  // following this config: https://codesandbox.io/s/better-react-mathjax-example-latex-optimal-8nn9n
+  // using version 3 makes fuzzy on browser print. 
   const config = {
-    loader: { load: ["[tex]/html"] },
-    tex: {
-      packages: { "[+]": ["html"] },
+    "fast-preview": {
+      disabled: true
+    },
+    tex2jax: {
       inlineMath: [
         ["$", "$"],
         ["\\(", "\\)"]
@@ -23,7 +27,8 @@ function App() {
         ["$$", "$$"],
         ["\\[", "\\]"]
       ]
-    }
+    },
+    messageStyle: "none"
   }
 
   // This is for overriding styles on componenets - can also use sx ={{}} to style specific componenents
@@ -32,11 +37,11 @@ function App() {
       MuiContainer:{
         styleOverrides: {
           root: {
-            background:'white', padding:"10px", margin:'15px 0px', 
+            background:'white', padding:"5px", margin:'5px 0px', 
         borderRadius:"20px", border: '4px solid pink', boxShadow: '5px 10px 18px #888888'
           },
       },
-    },
+    }
   }})
   
   return (
@@ -45,12 +50,20 @@ function App() {
       <ThemeProvider theme={theme}>
       <Navbar/>
       <div className='pages'>
+      <MathJaxContext  version={2}
+      config={config}
+      onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}>
         <Routes>
           <Route
           path ='/'
-          element = {<MathJaxContext config={config}><Home/></MathJaxContext>}
+          element = {<Home/>}
+          />
+          <Route
+          path ='/test'
+          element = {<Test/>}
           />
         </Routes>
+        </MathJaxContext>
       </div>
       </ThemeProvider>
       </BrowserRouter>
