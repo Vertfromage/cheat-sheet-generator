@@ -54,3 +54,43 @@ code {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.links{
+    color: white;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.links li{
+  margin: 0px 10px;
+}
+
+.links a{
+  text-decoration:none;
+}
+#only-on-print{
+  display: none;
+}
+
+/* Controls what is printed */
+@media print {
+  /* Gets rid of borders */
+  body * {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  /* Gets rid of blocks entirely */
+  #no-print {
+    display: none;
+  }
+  span{
+    display:none
+  }
+  /* .react-resizeable-handle{
+    display:none;
+  } */
+  #only-on-print{
+    display: block;
+  }
+}

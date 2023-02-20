@@ -16,10 +16,18 @@ const FormulasPage = () =>{
     const [lastClickedDiv, setLastClickedDiv] = useState('')
    // const [layouts, setLayouts] = useState({})
 
-    const handleButtonClick = (e) => {
+   // Can make a different printing experience depending if they pay
+   const paid = false
+
+    const handleEditButtonClick = (e) => {
         e.preventDefault()
         setEdit(!edit)
     }
+
+    const handlePrintButtonClick = (e) => {
+      e.preventDefault()
+      window.print()
+  }
 
     const onLayoutChange=(layout, layouts)=> {
       console.log(lastClickedDiv)
@@ -49,13 +57,22 @@ const FormulasPage = () =>{
       
     
     return (
-     <div>
-     <Button variant="outlined" onClick={handleButtonClick}>Edit {edit ? 'OFF': 'ON'}</Button>
+     <div id="'responsiveGridLayout'">
+      <div id="only-on-print">
+        {
+          // To show depending on if payment was received
+          paid ? true : <h2>"How will I ever earn a living if you won't pay?!"</h2>
+        }
+      </div>
+      <div id="no-print">
+     <Button variant="outlined" onClick={handleEditButtonClick}>Edit {edit ? 'OFF': 'ON'}</Button>
+     <Button variant="outlined" onClick={handlePrintButtonClick}>Print</Button>
+     </div>
       <ResponsiveGridLayout
         className="layout"
         // layout={layout}
         rowHeight={30}
-        width={window.innerWidth || document.documentElement.clientWidth}
+        width={window.innerWidth*.95 || document.documentElement.clientWidth*.95}
         breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
         cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
         onLayoutChange={(layout, layouts) =>

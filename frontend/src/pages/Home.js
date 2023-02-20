@@ -28,11 +28,11 @@ const Home = () => {
 
     return (
         <div className="home">
-        <Container><FormulaControls/></Container>
+        <Container id="no-print"><FormulaControls/></Container>
         <Container className="Page Container">
         <FormulasPage/>
         </Container>
-        <Container><MathjaxLogo/></Container>
+        <Container id="no-print"><MathjaxLogo/></Container>
         </div>
         
     )

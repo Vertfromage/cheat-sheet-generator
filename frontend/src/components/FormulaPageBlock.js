@@ -20,6 +20,7 @@ const FormulaPageBlock = (props) =>{
     return (
         <div 
             className="FormulaPageBlock"
+            id="section-to-print"
             >
             { title && <h4>{formula.name}</h4>}
             <p>
@@ -30,8 +31,8 @@ const FormulaPageBlock = (props) =>{
                 {formula.formula}
             </MathJax>
             </p>
-            <span className="material-symbols-rounded span-buttons" onClick={handleDeleteClick}>delete</span> 
-            <span className="material-symbols-rounded span-buttons" onClick={handleTitleClick}>Title</span> 
+            <span id="no-print" className="material-symbols-rounded span-buttons" onClick={handleDeleteClick}>delete</span> 
+            <span id="no-print" className="material-symbols-rounded span-buttons" onClick={handleTitleClick}>Title</span> 
         </div>
     )
 }else{

@@ -7,7 +7,7 @@ import { MathJaxContext } from "better-react-mathjax"
 import Home from './pages/Home'
 import Navbar from './components/Navbar';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Test from './components/Test';
+import Test from './pages/Test';
 
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <ThemeProvider theme={theme}>
-      <Navbar/>
+      <Navbar id="no-print" />
       <div className='pages'>
       <MathJaxContext  version={2}
       config={config}

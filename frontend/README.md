@@ -33,6 +33,7 @@ https://stackoverflow.com/questions/50081983/searching-on-array-items-on-a-dynam
 # NOTES
 - Won't need get all, just search by name... but get all is good for testing drag/drop
 - Edit should be a modal, you should only be able to edit on page, or ones you created... might need another variable for 'creator' and page ones should be different
+- shortcut to remove unused imports alt shift O 
 
 # Base Features
 - Search Formula Blocks by name
