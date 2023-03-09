@@ -1,13 +1,13 @@
 import { Button } from "@mui/material";
-import FormulaPageBlock from "./FormulaPageBlock"
-import { useState, useEffect } from "react"
-import { Responsive as ResponsiveGridLayout } from "react-grid-layout";
 import _ from "lodash";
+import { useState } from "react";
+import { Responsive as ResponsiveGridLayout } from "react-grid-layout";
+import FormulaPageBlock from "./FormulaPageBlock";
 
 //Stylesheets for react-grid-layout 
-import "/node_modules/react-grid-layout/css/styles.css"
-import "/node_modules/react-resizable/css/styles.css"
 import { usePageContext } from "../hooks/usePageContext";
+import "/node_modules/react-grid-layout/css/styles.css";
+import "/node_modules/react-resizable/css/styles.css";
 
 const FormulasPage = () =>{
     const {formulas, dispatchPage} = usePageContext()
@@ -16,8 +16,9 @@ const FormulasPage = () =>{
     const [lastClickedDiv, setLastClickedDiv] = useState('')
    // const [layouts, setLayouts] = useState({})
 
-   // Can make a different printing experience depending if they pay
-   const paid = false
+   // Can make a different printing experience depending if they pay - 
+   // need to add button to pay and save user state 
+   const paid = true
 
     const handleEditButtonClick = (e) => {
         e.preventDefault()
@@ -30,8 +31,6 @@ const FormulasPage = () =>{
   }
 
     const onLayoutChange=(layout, layouts)=> {
-      console.log(lastClickedDiv)
-      console.log(layout)
       
       try{
         if(lastClickedDiv){
@@ -61,8 +60,9 @@ const FormulasPage = () =>{
       <div id="only-on-print">
         {
           // To show depending on if payment was received
-          paid ? true : <h2>"How will I ever earn a living if you won't pay?!"</h2>
+          paid ? true : <div><h2>"How will I ever earn a living if you won't pay?!"</h2><img src={require('../media/img/leap.png')}></img><p>Produced on FormulaFart.com</p><div className="footer">FormulaFart.com</div></div>
         }
+        
       </div>
       <div id="no-print">
      <Button variant="outlined" onClick={handleEditButtonClick}>Edit {edit ? 'OFF': 'ON'}</Button>

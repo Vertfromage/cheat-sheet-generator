@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route} from 'react-router-dom' 
+import { MathJaxContext } from "better-react-mathjax";
 import React from "react";
-import { MathJaxContext } from "better-react-mathjax"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 // pages and components
-import Home from './pages/Home'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Navbar from './components/Navbar';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Test from './pages/Test';
+import FAQ from "./pages/FAQ";
+import Home from './pages/Home';
 
 
 function App() {
@@ -59,8 +59,8 @@ function App() {
           element = {<Home/>}
           />
           <Route
-          path ='/test'
-          element = {<Test/>}
+          path ='/faq'
+          element = {<FAQ/>}
           />
         </Routes>
         </MathJaxContext>

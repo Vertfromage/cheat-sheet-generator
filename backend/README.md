@@ -23,3 +23,6 @@ To list tables: aws dynamodb list-tables --endpoint-url http://localhost:8000
 To scan table: aws dynamodb scan --endpoint-url http://localhost:8000 --table-name "FormulaDatabase" 
 If I want to put in a file: --output json > items.json
 
+npm run dev
+
+# I got rid of Puppeteer I didn't need it... might want to figure out how to remove unused packages??? I was going to use it to print to pdf, but I found an easier way that uses built in tools.

@@ -1,8 +1,8 @@
-import { useFormulasContext } from "../hooks/useFormulasContext"
-import { MathJax } from "better-react-mathjax"
-import { usePageContext } from "../hooks/usePageContext"
+import { MathJax } from "better-react-mathjax";
+import { BrowserView, MobileView } from 'react-device-detect';
 import { v4 as uuid } from 'uuid';
-import {MobileView, BrowserView} from 'react-device-detect';
+import { useFormulasContext } from "../hooks/useFormulasContext";
+import { usePageContext } from "../hooks/usePageContext";
 
 
 
@@ -54,6 +54,7 @@ const FormulaDisplayBlock = ({ formula }) =>{
                 {formula.formula}
             </MathJax>
             </p>
+            {/* We can show tags, when created, but I don't think it helps...keeping for testing */}
             {/* <p>{formula.tags ? "Tags: "+ formula.tags.toString() : ""}</p>
             <p>{new Date(formula.createdAt).toDateString()}</p> */}
             <BrowserView>

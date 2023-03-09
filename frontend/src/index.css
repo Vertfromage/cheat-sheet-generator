@@ -6,7 +6,6 @@
 }
 
 body {
-  background: url(https://upload.wikimedia.org/wikipedia/commons/3/34/Spirale_Ulam_150.jpg);
   background-size: cover;
   margin: 0;
   font-family: 'Raleway',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -43,7 +42,7 @@ code {
 }
 
 
-.mathjax {
+.bottomBar {
   margin-top: 20px;
 }
 
@@ -69,6 +68,11 @@ code {
 .links a{
   text-decoration:none;
 }
+
+.bottom-links a{
+  margin: 0 10px;
+  text-decoration:none;
+}
 #only-on-print{
   display: none;
 }
@@ -92,5 +96,22 @@ code {
   } */
   #only-on-print{
     display: block;
+  }
+  #only-on-print img{
+    display: block;
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    width: 800px; 
+    opacity: 0.3; 
+    z-index: 9999;
+    transform: translate(-50%, -50%) rotate(-45deg); 
+  }
+  .footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10pt;
   }
 }

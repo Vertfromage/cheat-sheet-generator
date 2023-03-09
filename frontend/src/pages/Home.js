@@ -1,13 +1,11 @@
 
-import { Container, Grid, Box} from "@mui/material"
+import { Container } from "@mui/material"
 
-import { useFormulasContext } from "../hooks/useFormulasContext"
 import { useEffect } from "react"
-import FormulasList from "../components/FormulasList"
-import FormulaForm from "../components/FormulaForm"
-import FormulasPage from "../components/FormulaPage"
-import MathjaxLogo from "../components/MathjaxLogo"
+import BottomBar from "../components/BottomBar"
 import FormulaControls from "../components/FormulaControls"
+import FormulasPage from "../components/FormulaPage"
+import { useFormulasContext } from "../hooks/useFormulasContext"
 
 const Home = () => {
 
@@ -32,7 +30,7 @@ const Home = () => {
         <Container className="Page Container">
         <FormulasPage/>
         </Container>
-        <Container id="no-print"><MathjaxLogo/></Container>
+        <Container id="no-print"><BottomBar/></Container>
         </div>
         
     )

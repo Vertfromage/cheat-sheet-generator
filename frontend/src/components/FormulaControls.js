@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import * as React from 'react';
 
-import FormulasList from "./FormulasList"
-import FormulaForm from "./FormulaForm"
+import FormulaForm from "./FormulaForm";
+import FormulasList from "./FormulasList";
 
 function TabPanel(props) {
     const { children, value, index} = props;
