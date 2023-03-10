@@ -2,8 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const dynamoose = require('dynamoose')
 const formulaRoutes = require('./routes/FormulaRoutes')
-// const userRoutes = require('./routes/UserRoutes')
-// const pageRoutes = require('./routes/PageRoutes')
+const userRoutes = require('./routes/UserRoutes')
+const pageRoutes = require('./routes/PageRoutes')
 
 // express app
 const app = express() 
@@ -17,8 +17,8 @@ app.use((req, res, next)=>{
 
 // routes - need the path localhost:4000/api/
 app.use('/api/formulas', formulaRoutes)
-// app.use('/api/users', userRoutes)
-// app.use('/api/pages', pageRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/pages', pageRoutes)
 
 // // Create new DynamoDB instance
 // const ddb = new dynamoose.aws.ddb.DynamoDB({
@@ -31,7 +31,7 @@ app.use('/api/formulas', formulaRoutes)
 // dynamoose.aws.ddb.set(ddb);
 
 // Local testing
-dynamoose.aws.ddb.local();
+dynamoose.aws.ddb.local()
 
 // listen for requests
 app.listen(process.env.PORT, ()=>{

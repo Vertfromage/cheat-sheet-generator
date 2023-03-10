@@ -3,7 +3,8 @@
 
 const AWS = require('aws-sdk')
 
-const {callLambda} = require('../helpers/lambda.js')
+// Import my model
+const PageTable = require("../models/PageTable")
 
 // get a single Page
 const getPage = async (req, res) => {
@@ -14,9 +15,8 @@ const getPage = async (req, res) => {
     }
 
     try {
-        // const Page = await PageTable.get(id)
-        const Page = await callLambda('get', {id})
-        //Page.toJSON    // not sure if it's already json at this point? I think it's an object
+        const Page = await PageTable.get(id)
+       // Page.toJSON    // not sure if it's already json at this point? I think it's an object
         return res.status(200).json(Page)
     } catch (error) {
         console.error(error);
@@ -34,8 +34,7 @@ const queryPagesByName = async (req, res) => {
     }
     
     try{
-        // const Pages = await PageTable.query().filter("name").eq(name).exec()
-        const Pages = await callLambda('byName', {name})
+        const Pages = await PageTable.query().filter("name").eq(name).exec()
         return res.status(200).json(Pages)
     }catch(error){
         console.error(error);
@@ -56,8 +55,7 @@ const createPage = async (req, res) => {
 
     // add doc to db
     try{
-        //const Page = await PageTable.create({id, name, Page, pages})
-        const Page = await callLambda('create', {id, name, userName, pageBody, share, tags})
+        const Page = await PageTable.create({id, name, Page, pages})
         return res.status(200).json(Page) // return the object
     }catch(error){
         console.log("something didn't work in create!!")
@@ -70,8 +68,7 @@ const deletePage = async (req, res) => {
     const {id} = req.params
 
     try{
-       // const Page = await PageTable.delete(id)
-        const Page = await callLambda('delete', {id})
+        const Page = await PageTable.delete(id)
         return res.status(200).json(Page)
     }catch(error){
         return res.status(400).json({"error": error.message})
@@ -87,7 +84,7 @@ const updatePage = async (req,res) => {
     }
 
     try{
-        const Page = await callLambda('update', {id, name, page, tags})
+        const Page = await PageTable.update({id, name, page, tags})
         return res.status(200).json(Page)
     }catch(error){
         return res.status(400).json({"error": error.message})
