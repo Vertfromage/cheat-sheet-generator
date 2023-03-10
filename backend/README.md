@@ -26,3 +26,11 @@ If I want to put in a file: --output json > items.json
 npm run dev
 
 # I got rid of Puppeteer I didn't need it... might want to figure out how to remove unused packages??? I was going to use it to print to pdf, but I found an easier way that uses built in tools.
+
+# Lambdas Docs
+https://stackoverflow.com/questions/33659059/invoke-amazon-lambda-function-from-node-app - right idea, but out of date.
+
+https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+https://aws.amazon.com/getting-started/hands-on/run-serverless-code/
+https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps
+

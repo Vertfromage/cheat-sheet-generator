@@ -3,7 +3,7 @@ const dynamoose = require('dynamoose')
 const Schema = dynamoose.Schema
 
 // My schema
-const UserSchema = new Schema({
+const PageSchema = new Schema({
   // Key value pairs
   id: {
     type: String,
@@ -13,13 +13,19 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  // stored as hash string
-  password: {
+  pageBody:{
     type: String,
     required: true
   },
-  // this is an array of page ids
-  pages: {
+  userName: {
+    type: String,
+    required: true
+  },
+  share: {
+    type: Boolean,
+    required: true
+  },
+  tags: {
     type : Array,
     schema : [String]
   }
@@ -32,7 +38,7 @@ const UserSchema = new Schema({
 )
 
 // This is my model based on the schema
-module.exports = dynamoose.model("UserDatabase", UserSchema, {
+module.exports = dynamoose.model("PageDatabase", PageSchema, {
   // When the table already exists set false - highly recommended in production
   "create": true
 })
