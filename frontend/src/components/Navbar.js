@@ -11,11 +11,14 @@ const Navbar = () => {
     <AppBar position="static" >
     <Toolbar>
     <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-    Formula Factory
+    <Link to="/">Formula Factory</Link>
     </Typography>
     <ul className='links'>
       <li>
-      <Link to="/home"><h2>Home</h2></Link>
+      <Link to="/home"><h2>Editor</h2></Link>
+      </li>
+      <li>
+      <Link to="/pages"><h2>Pages</h2></Link>
       </li>
       <li>
       <Link to="/faq"><h2>FAQ</h2></Link>

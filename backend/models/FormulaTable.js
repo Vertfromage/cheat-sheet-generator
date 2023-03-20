@@ -37,6 +37,6 @@ const FormulasSchema = new Schema({
 
 // This is my model based on the schema
 module.exports = dynamoose.model("FormulaDatabase", FormulasSchema, {
-  // When the table already exists set false - highly recomended in production
+  // When the table already exists set false - highly recommended in production
   "create": true
 })

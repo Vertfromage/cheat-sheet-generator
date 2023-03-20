@@ -24,7 +24,7 @@ export const pageReducer = (state, action) => {
         case 'UPDATE_PAGE_FORMULA':
             return{
                 // new updated verion of object with the currect state minus the past verion of the object
-                formulas: [action.payload, ...state.formulas.filter((f)=>f.id !=action.payload.id)]
+                formulas: [action.payload, ...state.formulas.filter((f)=>f.id !=action.payload)]
             }
         default: return state
     }

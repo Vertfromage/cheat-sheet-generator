@@ -33,18 +33,18 @@ const style = {
 
 const FormulasPage = () =>{
     const {formulas} = usePageContext()
-    console.log(formulas)
+    // console.log(formulas)
  
     const [edit, setEdit] = useState(true)
     const [lastClickedDiv, setLastClickedDiv] = useState('')
     const [open, setOpen] = useState(false)
     const handleClose = () => setOpen(false)
     const {user} = useUserContext()
+    const [paid, setPaid] = useState(false)
    // const [layouts, setLayouts] = useState({})
 
    // Can make a different printing experience depending if they pay - 
    // need to add button to pay and save user state 
-   const paid = true
 
     const handleEditButtonClick = (e) => {
         e.preventDefault()
@@ -54,6 +54,11 @@ const FormulasPage = () =>{
     const handlePrintButtonClick = (e) => {
       e.preventDefault()
       window.print()
+  }
+
+  const handlePayClick = (e) =>{
+    e.preventDefault()
+    setPaid(!paid)
   }
 
   const handleSaveButtonClick = (e) =>{
@@ -93,7 +98,7 @@ const FormulasPage = () =>{
       <div id="only-on-print">
         {
           // To show depending on if payment was received
-          paid ? true : <div><h2>"How will I ever earn a living if you won't pay?!"</h2><img src={require('../media/img/leap.png')}></img><p>Produced on FormulaFart.com</p><div className="footer">FormulaFart.com</div></div>
+          paid ? true : <div><img src={require('../media/img/leap.png')}></img><div className="footer">Made with FormulaFactory.com</div><div className="header">Made with FormulaFactory.com</div></div>
         }
         
       </div>
@@ -101,6 +106,7 @@ const FormulasPage = () =>{
      <Button variant="outlined" onClick={handleEditButtonClick}>Edit {edit ? 'OFF': 'ON'}</Button>
      <Button variant="outlined" onClick={handlePrintButtonClick}>Print</Button>
      <Button variant="outlined" onClick={handleSaveButtonClick} >Save</Button>
+     <Button variant="outlined" onClick={handlePayClick} >{paid? "No Pay": "Pay"}</Button>
      </div>
       <ResponsiveGridLayout
         className="layout"

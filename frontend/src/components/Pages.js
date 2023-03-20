@@ -1,18 +1,15 @@
+
 import React from 'react'
 import { useUserContext } from "../hooks/useUserContext"
+import PageBox from './PageBox'
 
 function Pages() {
-  const {user, dispatchUser} = useUserContext()
-
-  const handleClick = () =>{
-    console.log("clicked")
-    // get page from database based off id
-  }
+  const {user} = useUserContext()
 
   return (
     <div>
         {user.pages && user.pages.map((page)=>(
-                    <div id={JSON.parse(page).id} onClick={handleClick} key={JSON.parse(page).id} >{<h2>{JSON.parse(page).name}</h2>}</div>
+                   page && <PageBox key={JSON.parse(page).pageId} name={JSON.parse(page).name} pageId={JSON.parse(page).pageId}/>
                 ))}
     </div>
   )

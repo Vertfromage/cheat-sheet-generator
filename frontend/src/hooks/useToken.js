@@ -12,21 +12,18 @@ export default function useToken() {
 
           if(userToken){
           // This is getting called twice and I'm not sure why
-          console.log(userToken.userId)
-          console.log(user)
           if(userToken.userId && !user.id){ 
             const fetchUser = async ()=>{
               const response = await fetch('/api/users/'+userToken.userId) // ToDo update for production - teporarily working becuase of proxy in the package.json
               const json = await response.json()
               if(response.ok){
-                console.log("Is okay")
-                console.log(json)
                   dispatchUser({type: 'SET_USER',payload:{id:userToken.userId, email: json.email, pages: json.pages}})
               }
           }
           fetchUser()
+          console.log("User fetched")
         }else{
-          console.log("Not fetching user")
+          // console.log("Not fetching user")
         }
           return userToken.token
       }

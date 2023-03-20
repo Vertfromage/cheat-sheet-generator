@@ -114,4 +114,12 @@ code {
     text-align: center;
     font-size: 10pt;
   }
+
+  .header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10pt;
+  }
 }

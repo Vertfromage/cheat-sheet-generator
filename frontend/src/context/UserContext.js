@@ -8,6 +8,11 @@ export const userReducer = (state, action) => {
             return {
                 user: action.payload
             }
+        // case 'DELETE_PAGE':
+        //     return{
+        //         // get rid of workout we deleted from our state using filter
+        //         user: state.user.pages.filter((p)=>JSON.parse(p).pageId !=action.payload.pageId)
+        //     }
         default: return state
     }
 }
