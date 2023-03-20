@@ -5,6 +5,7 @@ const AWS = require('aws-sdk')
 // Import my model
 const FormulaTable = require("../models/FormulaTable")
 
+
 // get a single Formula
 const getFormula = async (req, res) => {
     const {id} = req.params
@@ -110,6 +111,8 @@ const updateFormula = async (req,res) => {
         return res.status(400).json({"error": error.message})
     }
 }
+
+
 
 
 

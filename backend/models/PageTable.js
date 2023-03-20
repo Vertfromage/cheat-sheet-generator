@@ -17,13 +17,13 @@ const PageSchema = new Schema({
     type: String,
     required: true
   },
-  userName: {
+  userId: {
     type: String,
     required: true
   },
   share: {
     type: Boolean,
-    required: true
+    default: false
   },
   tags: {
     type : Array,

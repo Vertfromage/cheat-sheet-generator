@@ -15,7 +15,7 @@ const Navbar = () => {
     </Typography>
     <ul className='links'>
       <li>
-      <Link to="/"><h2>Home</h2></Link>
+      <Link to="/home"><h2>Home</h2></Link>
       </li>
       <li>
       <Link to="/faq"><h2>FAQ</h2></Link>

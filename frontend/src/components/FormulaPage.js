@@ -4,16 +4,42 @@ import { useState } from "react";
 import { Responsive as ResponsiveGridLayout } from "react-grid-layout";
 import FormulaPageBlock from "./FormulaPageBlock";
 
-//Stylesheets for react-grid-layout 
+// context
+import { useUserContext } from "../hooks/useUserContext"
 import { usePageContext } from "../hooks/usePageContext";
+//Stylesheets for react-grid-layout 
 import "/node_modules/react-grid-layout/css/styles.css";
 import "/node_modules/react-resizable/css/styles.css";
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import { Container } from "@mui/system";
+import SavePage from "./SavePage";
+
+
+// Style for modal
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+  borderRadius: '20px'
+}
+
 
 const FormulasPage = () =>{
-    const {formulas, dispatchPage} = usePageContext()
+    const {formulas} = usePageContext()
+    console.log(formulas)
  
     const [edit, setEdit] = useState(true)
     const [lastClickedDiv, setLastClickedDiv] = useState('')
+    const [open, setOpen] = useState(false)
+    const handleClose = () => setOpen(false)
+    const {user} = useUserContext()
    // const [layouts, setLayouts] = useState({})
 
    // Can make a different printing experience depending if they pay - 
@@ -28,6 +54,11 @@ const FormulasPage = () =>{
     const handlePrintButtonClick = (e) => {
       e.preventDefault()
       window.print()
+  }
+
+  const handleSaveButtonClick = (e) =>{
+    e.preventDefault()
+    setOpen(true)
   }
 
     const onLayoutChange=(layout, layouts)=> {
@@ -53,6 +84,8 @@ const FormulasPage = () =>{
       console.log("oops")
     }
   }
+
+  
       
     
     return (
@@ -67,6 +100,7 @@ const FormulasPage = () =>{
       <div id="no-print">
      <Button variant="outlined" onClick={handleEditButtonClick}>Edit {edit ? 'OFF': 'ON'}</Button>
      <Button variant="outlined" onClick={handlePrintButtonClick}>Print</Button>
+     <Button variant="outlined" onClick={handleSaveButtonClick} >Save</Button>
      </div>
       <ResponsiveGridLayout
         className="layout"
@@ -84,6 +118,16 @@ const FormulasPage = () =>{
                     <div id={formula.id} onClick={handleLastClick} key={formula.id} data-grid={formula.gridObj} >{<FormulaPageBlock key={formula.id} formula={formula} edit={edit}/>}</div>
                 ))}
       </ResponsiveGridLayout>
+
+      {/* Save modal */}
+            <Modal
+                open={open}
+                onClose={handleClose}
+            >
+                <Box sx={style}>
+                  <SavePage/>                  
+                </Box>
+            </Modal>
       </div> 
     )
   }

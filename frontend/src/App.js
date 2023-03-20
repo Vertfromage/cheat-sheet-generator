@@ -1,13 +1,18 @@
 import { MathJaxContext } from "better-react-mathjax";
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 // pages and components
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Login from "./components/Login";
 import Navbar from './components/Navbar';
 import FAQ from "./pages/FAQ";
 import Home from './pages/Home';
+import useToken from "./hooks/useToken";
+import Landing from "./components/Landing";
+import Pages from "./components/Pages";
+
 
 
 function App() {
@@ -31,7 +36,7 @@ function App() {
     messageStyle: "none"
   }
 
-  // This is for overriding styles on componenets - can also use sx ={{}} to style specific componenents
+  // This is for overriding styles on components - can also use sx ={{}} to style specific components
   const theme = createTheme({
     components: {
       MuiContainer:{
@@ -44,6 +49,9 @@ function App() {
     }
   }})
   
+  
+  const {token, setToken} = useToken() 
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -55,8 +63,16 @@ function App() {
       onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}>
         <Routes>
           <Route
-          path ='/'
-          element = {<Home/>}
+          path="/"
+          element= {<Landing/>}
+          />
+          <Route
+          path ='/home'
+          element = {token ? <Home/> : <Login setToken={setToken}/> }
+          />
+          <Route
+          path ='/pages'
+          element = {token ? <Pages/> : <Login setToken={setToken}/> }
           />
           <Route
           path ='/faq'

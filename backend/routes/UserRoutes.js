@@ -5,13 +5,17 @@ const {
     queryUsersByName,
     getUser,
     deleteUser,
-    updateUser
+    updateUser,
+    queryUsersByEmail
 } = require('../controllers/UserController')
 
 const router = express.Router()
 
 // GET all Users
 router.get('/', getAllUsers)
+
+// query by email
+router.get('/find/:email', queryUsersByEmail)
 
 // get a single User by id
 router.get('/:id', getUser)

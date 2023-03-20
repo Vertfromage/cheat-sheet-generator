@@ -11,6 +11,7 @@ const Home = () => {
 
     // Loading all formulas into state
     const {dispatch} = useFormulasContext()
+    
     useEffect(()=>{
         const fetchFormulas = async ()=>{
             const response = await fetch('/api/formulas') // ToDo update for production - teporarily working becuase of proxy in the package.json

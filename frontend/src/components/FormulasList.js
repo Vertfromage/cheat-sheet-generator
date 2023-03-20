@@ -1,27 +1,38 @@
 import FormulaDisplayBlock from "../components/FormulaDisplayBlock"
 import { useFormulasContext } from "../hooks/useFormulasContext"
 import {TextField, Select, MenuItem } from "@mui/material"
-import {useState } from "react"
+import {useState, useEffect } from "react"
 
 const FormulasList = () =>{
     const {formulas} = useFormulasContext()
     const [searchBy , setSearchBy] = useState(0)
     const [filteredSearch, setFilteredSearch] = useState([])
-
+    const [searchTerm, setSearchTerm] = useState("")
+    
+    
     const handleSearchByChange = (e) => {
         setSearchBy(e.target.value)
-        // ToDo: should search again based on new seachBy value
+        // ToDo: should search again based on new searchBy value
+    }
+
+    useEffect(()=>{
+        handleSearchChange(searchTerm)
+    },[formulas])
+
+    const handleSearchTermChange = (e) =>{
+        setSearchTerm(e.target.value)
+        handleSearchChange(e.target.value)
     }
     
-    const handleSearchChange = (e) => {
-        const searchTerm= e.target.value
+    const handleSearchChange = (search) => {
+        if(formulas){
         let filteredSearchResults = formulas.filter(formula =>{
-            const regex = new RegExp(`^${searchTerm}`, 'i') // i is case insensitive... not sure if I want it that way or not?
+            const regex = new RegExp(`^${search}`, 'i') // i is case insensitive... not sure if I want it that way or not?
             switch(searchBy){
                 // name
                 case 0 : return regex.test(formula.name)
                 // formula -  using includes because regex wasn't working.
-                case 1 : return formula.formula.includes(searchTerm)
+                case 1 : return formula.formula.includes(search)
                 // tag
                 case 2 : let inTags=false; formula.tags && formula.tags.forEach(tag => {
                     if(regex.test(tag)){inTags=true}
@@ -29,14 +40,15 @@ const FormulasList = () =>{
                 return inTags
                 default : return false
             }
+        
         })
-
         setFilteredSearch(filteredSearchResults)
+    }
     }
 
     return (
         <div>
-        <TextField onChange={handleSearchChange} type="text" label="Search" sx={{width:"60%"}} autoComplete="off"></TextField>
+        <TextField onChange={handleSearchTermChange} type="text" label="Search" sx={{width:"60%"}} autoComplete="off"></TextField>
         <Select
             id="search-formulas"
             label="Search by:"

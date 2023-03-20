@@ -22,7 +22,6 @@ const FAQ = () => {
       </ol>
      
      <h3>What features are you still working on?</h3>
-     
      <ol>
         <li>User Accounts ⭐</li>
         <li>Saving pages to database by user.⭐</li>
@@ -35,6 +34,7 @@ const FAQ = () => {
         <li>Headings</li>
         <li>Fonts, styling</li>
         <li>Export to different formats</li>
+        <li>Math keyboard buttons, for users that don't want to use MathJax directly</li>
         <li>Making it profitable, freemium business model</li>
       </ol>
       <h3>Bugs</h3>

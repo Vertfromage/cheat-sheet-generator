@@ -4,6 +4,7 @@ const dynamoose = require('dynamoose')
 const formulaRoutes = require('./routes/FormulaRoutes')
 const userRoutes = require('./routes/UserRoutes')
 const pageRoutes = require('./routes/PageRoutes')
+const authRoutes = require('./routes/AuthRoutes')
 
 // express app
 const app = express() 
@@ -12,6 +13,7 @@ const app = express()
 app.use(express.json())
 app.use((req, res, next)=>{
     console.log(req.path, req.method)
+    console.log(req.body, req.params)
     next()
 })
 
@@ -19,8 +21,9 @@ app.use((req, res, next)=>{
 app.use('/api/formulas', formulaRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/pages', pageRoutes)
+app.use('/api/auth', authRoutes) 
 
-// // Create new DynamoDB instance
+// // Create new DynamoDB instance 
 // const ddb = new dynamoose.aws.ddb.DynamoDB({
 //     "accessKeyId": process.env.AWS_ACCESS_KEY_ID,
 //     "secretAccessKey": process.env.AWS_SECRET_ACCESS_KEY,

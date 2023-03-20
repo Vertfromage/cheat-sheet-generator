@@ -44,8 +44,29 @@ const queryUsersByName = async (req, res) => {
     }
     
     try{
-        const Users = await UserTable.query().filter("name").eq(name).exec()
+        const Users = await UserTable.query().filter('name').eq(name).exec()
         return res.status(200).json(Users)
+    }catch(error){
+        console.error(error);
+        return res.status(404).json({"error": error.message})
+    }
+}
+
+// Scans by name - Query is more efficient than scan
+const queryUsersByEmail = async (req, res) => {
+    const {email} = req.params
+
+    console.log("Query "+email)
+
+    // checking to make sure all variables are there.
+    if(!email){
+        return res.status(400).json({"error": 'No email attached'})
+    }
+    
+    try{
+        //should work with query but it isn't, query is better fix later 
+        const User = await UserTable.scan('email').eq(email).exec() 
+        return res.status(200).json(User)
     }catch(error){
         console.error(error);
         return res.status(404).json({"error": error.message})
@@ -54,9 +75,9 @@ const queryUsersByName = async (req, res) => {
 
 // create new User
 const createUser = async (req, res) => {
-    const {name, password, pages} = req.body; // destructuring
+    const {name, password, email} = req.body; // destructuring
 
-    if(!name || !password){
+    if(!password || !email){
         return res.status(400).json({"error": 'Missing variables! Need name and User'})
     }
 
@@ -65,7 +86,7 @@ const createUser = async (req, res) => {
 
     // add doc to db
     try{
-        const User = await UserTable.create({id, name, password, pages})
+        const User = await UserTable.create({id, name, password, email, pages:[]})
         return res.status(200).json(User) // return the object
     }catch(error){
         console.log("something didn't work in create!!")
@@ -87,17 +108,16 @@ const deleteUser = async (req, res) => {
 
 // update a User
 const updateUser = async (req,res) => {
-    const {id, name, password, pages} = req.body; // destructuring
+    const {id, name, pages} = req.body; // destructuring
 
-    if(!id||!name || !password){
-        return res.status(400).json({"error": 'Missing variables! Need id, name and User'})
+    if(!id){
+        return res.status(400).json({"error": 'Missing variables! Need id'})
     }
 
     try{
         const User = await UserTable.update({
             "id":id,
             "name": name,
-            "password": password,
             "pages": pages
         })
         return res.status(200).json(User)
@@ -114,6 +134,7 @@ module.exports = {
     getAllUsers,
     queryUsersByName,
     deleteUser,
-    updateUser
+    updateUser,
+    queryUsersByEmail
 }
 

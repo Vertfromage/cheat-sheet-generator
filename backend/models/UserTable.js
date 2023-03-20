@@ -11,7 +11,15 @@ const UserSchema = new Schema({
   },
   name: {
     type: String,
-    required: true
+    required: false
+  },
+  email:{
+    type: String,
+    required: true,
+    index: {
+      global: true,
+      name: 'emailIndex'
+    } 
   },
   // stored as hash string
   password: {
@@ -22,6 +30,10 @@ const UserSchema = new Schema({
   pages: {
     type : Array,
     schema : [String]
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
   }
 
   // dynamoose automatically adds createdAt and updatedAt because timestamp is set to true

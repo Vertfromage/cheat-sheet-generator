@@ -18,7 +18,7 @@ https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.D
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.UsageNotes.html
 java -D"java.library.path=./DynamoDBLocal_lib" -jar DynamoDBLocal.jar
 Inside dynamodb_local_latest folder : aws dynamodb list-tables --endpoint-url http://localhost:8000
-# CLI commands - don't reallly need because of postman... but still
+# CLI commands - don't really need because of postman... but still
 To list tables: aws dynamodb list-tables --endpoint-url http://localhost:8000
 To scan table: aws dynamodb scan --endpoint-url http://localhost:8000 --table-name "FormulaDatabase" 
 If I want to put in a file: --output json > items.json
@@ -28,9 +28,28 @@ npm run dev
 # I got rid of Puppeteer I didn't need it... might want to figure out how to remove unused packages??? I was going to use it to print to pdf, but I found an easier way that uses built in tools.
 
 # Lambdas Docs
-https://stackoverflow.com/questions/33659059/invoke-amazon-lambda-function-from-node-app - right idea, but out of date.
-
 https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 https://aws.amazon.com/getting-started/hands-on/run-serverless-code/
 https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps
 
+# TA's advice:
+I'm making it too complicated, instead for lambdas do: admin report - get list of users formulas, how many users, overall statistics
+specialized query that only gets called sometimes
+don't need model just hard coded query
+sns - trigger to send notification (amazons notification service) might count as item simple notification service
+attach an api gateway to lambda and then make a get request  (use axios)
+better because no sdk
+
+# ToDo Extra
+- Sanitize inputs found this advice: https://stackoverflow.com/questions/46718772/how-i-can-sanitize-my-input-values-in-node-js
+- docs validator: https://express-validator.github.io/docs/
+- docs sanitizer: https://flaviocopes.com/express-sanitize-input/
+- you can add validators to the schema see: https://dynamoosejs.com/guide/Schema/
+
+# mathjax examples
+sum of squares
+$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$
+Pythagorean Theorem 
+$a^2+b^2=c^2$
+area of a rectangle
+$a = l\times w$

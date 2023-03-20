@@ -6,6 +6,18 @@ const AWS = require('aws-sdk')
 // Import my model
 const PageTable = require("../models/PageTable")
 
+//get all pages
+const getAllPages = async (req, res) => {
+    
+    try{
+        const Pages = await PageTable.scan().exec()
+        return res.status(200).json(Pages)
+    }catch(error){
+        console.error(error);
+        return res.status(404).json({"error": error.message})
+    }
+}
+
 // get a single Page
 const getPage = async (req, res) => {
     const {id} = req.params
@@ -25,16 +37,16 @@ const getPage = async (req, res) => {
 }
 
 // Scans by name - Query is more efficient than scan
-const queryPagesByName = async (req, res) => {
-    const {name} = req.params
+const queryPagesByUserId = async (req, res) => {
+    const {userId} = req.params
 
     // checking to make sure all variables are there.
-    if(!name){
-        return res.status(400).json({"error": 'No name attached'})
+    if(!userId){
+        return res.status(400).json({"error": 'No userId attached'})
     }
     
     try{
-        const Pages = await PageTable.query().filter("name").eq(name).exec()
+        const Pages = await PageTable.scan("userId").eq(userId).exec()
         return res.status(200).json(Pages)
     }catch(error){
         console.error(error);
@@ -44,19 +56,18 @@ const queryPagesByName = async (req, res) => {
 
 // create new Page
 const createPage = async (req, res) => {
-    const {name, userName, pageBody, tags, share} = req.body; // destructuring
+    const {name, userId, pageBody} = req.body; // destructuring
 
-    if(!name || !pageBody || !userName){
+    if(!name || !pageBody || !userId){
         return res.status(400).json({"error": 'Missing variables! Need name and Page'})
     }
 
     id = AWS.util.uuid.v4()
 
-
     // add doc to db
     try{
-        const Page = await PageTable.create({id, name, Page, pages})
-        return res.status(200).json(Page) // return the object
+        const Page = await PageTable.create({id, name, pageBody, userId})
+        return res.status(200).json({pageId: Page.id}) // return the object
     }catch(error){
         console.log("something didn't work in create!!")
         return res.status(400).json({"error": error.message})
@@ -96,7 +107,8 @@ const updatePage = async (req,res) => {
 module.exports = {
     createPage, 
     getPage, 
-    queryPagesByName,
+    getAllPages,
+    queryPagesByUserId,
     deletePage,
     updatePage
 }

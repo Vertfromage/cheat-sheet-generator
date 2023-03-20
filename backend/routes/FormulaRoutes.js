@@ -5,7 +5,8 @@ const {
     queryFormulasByName,
     getFormula,
     deleteFormula,
-    updateFormula
+    updateFormula,
+    dropTable
 } = require('../controllers/FormulaController')
 
 const router = express.Router()
@@ -30,6 +31,8 @@ router.patch('/', updateFormula)
 
 // Print to PDF
 // 
+
+
 
 
 module.exports = router

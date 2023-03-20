@@ -19,7 +19,6 @@ const FormulaForm = () => {
       console.log("re-rendered")
       console.log(toDatabase)
     }, [toDatabase])
-    
 
 
     // input handlers
@@ -43,7 +42,7 @@ const FormulaForm = () => {
         console.log("tags string "+tags)
         console.log(tagsArr)
 
-        const formulaObj = {name, formula, tagsArr}
+        const formulaObj = {name, formula, tags:tagsArr}
         
         if(toDatabase){
         const response = await fetch('/api/formulas', {
@@ -102,6 +101,7 @@ const FormulaForm = () => {
             autoComplete='off'
         >
         </TextField>
+        {/* ToDo: Make it so input is formatted as typed */}
         <TextField 
             placeholder="Formula MathJax"
             label="Formula"
@@ -115,7 +115,7 @@ const FormulaForm = () => {
             required
         ></TextField>
         <div>
-            <p > 
+            <p> 
             <MathJax>
             {formula}
             </MathJax>

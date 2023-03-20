@@ -39,6 +39,23 @@ https://stackoverflow.com/questions/50081983/searching-on-array-items-on-a-dynam
 - Could divide formulas by subject and get from database by subject and then search locally. That way we could have Calculus, Physics, Basic Math, Statistics, Computer Science... could be good... overlap though...
 - Should try to prevent overlap in database... maybe? If name + formula are the same don't add it? Maybe add new tags to existing duplicate if necessary 
 - pages should be separate database probably
+- It needs to be prettier... get help with this if I try to make money off it. 
+- SNS https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html
+- SNS and lambda: https://hevodata.com/learn/sns-lambda/#:~:text=AWS%20Lambda%20and%20Amazon%20SNS%20integrate%2C%20allowing%20you,Lambda%20function%20is%20invoked%20with%20the%20message%20payload.
+https://docs.aws.amazon.com/lambda/latest/dg/with-sns.html
+https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html
+
+# Completed Term Requirements
+- DynamoDB [x]
+
+# ToDo Term Requirements
+- Docker and Elastic Instance []
+- Lambda []
+- SNS [] 
+- AWS Backup []
+- VPC Virtual Private Cloud []
+- Working app to demo []
+
 
 # Completed Features 
 - Draggable formula blocks [x]
@@ -75,19 +92,17 @@ https://stackoverflow.com/questions/50081983/searching-on-array-items-on-a-dynam
 
 
 # Possible names
-Cheat Sheet Generator
-Formula Flick
+Cheat Sheet Generator *Best choice for marketing for main use case*
+Formula Flick 
 Math Flick
 Formula Fast Flick
 Quick Flick Formula
-Flick Your Formulas
 Formula Swipe
 Math Sled
 Math Mosaic
-Formula Fart
-Formula Factory
+Formula Factory *Best choice for general use* 
 
-# similar sites
+# similar sites for market research 
 https://mathpix.com/
 https://www.wiris.com/en/mathtype/
 https://www.geogebra.org/notes
@@ -96,6 +111,12 @@ https://www.wolframalpha.com/
 https://products.wolframalpha.com/api
 https://www.wolfram.com/products/?source=gws-nav
 https://www.facebook.com/MathType
+http://mathquill.com/ (shows preview as you type it... I might do that.)
+https://cheatography.com/ 
 
 
 # wolframalpha has a paid api that I could use to make my site more awesome if I have success to begin with.  
+
+
+# read later maybe
+https://stackoverflow.com/questions/57190892/how-to-not-display-navbar-on-specific-pages

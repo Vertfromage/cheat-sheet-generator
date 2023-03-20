@@ -10,12 +10,14 @@ const FormulaDisplayBlock = ({ formula }) =>{
     const {dispatch} = useFormulasContext()
     const {dispatchPage} = usePageContext()
     const handleClickDelete = async() =>{
+        console.log("deleting "+formula.name)
         const response = await fetch('api/formulas/'+formula.id,{
             method: 'DELETE'
         })
 
         // dynamoDB doesn't pass the object back when it deletes it, so we pass formula in from object
         if(response.ok){
+            console.log("deleting locally")
             dispatch({type: 'DELETE_FORMULA',payload: formula})
         }
     }
