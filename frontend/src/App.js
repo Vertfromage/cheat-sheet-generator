@@ -1,17 +1,17 @@
 import { MathJaxContext } from "better-react-mathjax";
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 // pages and components
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Navbar from './components/Navbar';
+import Pages from "./components/Pages";
+import useToken from "./hooks/useToken";
 import FAQ from "./pages/FAQ";
 import Home from './pages/Home';
-import useToken from "./hooks/useToken";
-import Landing from "./components/Landing";
-import Pages from "./components/Pages";
 
 
 

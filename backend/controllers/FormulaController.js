@@ -69,7 +69,7 @@ const createFormula = async (req, res) => {
 
 
 
-    // add doc to db
+    // add doc to db 
     try{
         const Formula = await FormulaTable.create({id, name, formula, tags})
         return res.status(200).json(Formula) // return the object
@@ -84,9 +84,12 @@ const deleteFormula = async (req, res) => {
     const {id} = req.params
 
     try{
+        console.log(id)
         const Formula = await FormulaTable.delete(id)
         return res.status(200).json(Formula)
     }catch(error){
+        console.log("Error with delete")
+        console.log(error.message)
         return res.status(400).json({"error": error.message})
     }
 }

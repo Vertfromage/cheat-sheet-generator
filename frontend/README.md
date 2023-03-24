@@ -44,6 +44,7 @@ https://stackoverflow.com/questions/50081983/searching-on-array-items-on-a-dynam
 - SNS and lambda: https://hevodata.com/learn/sns-lambda/#:~:text=AWS%20Lambda%20and%20Amazon%20SNS%20integrate%2C%20allowing%20you,Lambda%20function%20is%20invoked%20with%20the%20message%20payload.
 https://docs.aws.amazon.com/lambda/latest/dg/with-sns.html
 https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html
+- Might be calling get formulas too much
 
 # Completed Term Requirements
 - DynamoDB [x]
@@ -55,6 +56,7 @@ https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html
 - AWS Backup []
 - VPC Virtual Private Cloud []
 - Working app to demo []
+- Recording of demo video []
 
 
 # Completed Features 
@@ -62,19 +64,22 @@ https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html
 - Edit formula blocks when on page [x]
 - Printable Pages [x]
 - Search Formula Blocks by name, formula and tag [x]
+- Accounts [x]
+- Save Pages to edit more later [x]
+- authentication registration/login [x]
 
 
 # ToDo Base Features
 - Only admin should be able to globally delete a formula
 - Resize to fit on 1 or 2 pages.
-- allow code snippets too. <code></code>
-- Accounts
-- Save Pages to edit more later
 - clear page
 - sharable
-- accessible
+- Admin report SNS from lambda
+
 
 # Deluxe Features
+- accessible
+- allow code snippets too. <code></code>
 - Send Alerts to users
 - collaboration
 - formula keyboard
@@ -82,10 +87,11 @@ https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html
 - if not found in database, return link to wikipedia
 
 # Later
-- authentication registration/login
+- Login/register with google/github
 - make error codes prettier 
 - add figures (maybe integrate some python)
 - click anywhere on page and add a formula/header/search at that spot
+- Paypal integration 
 
 # Much later
 - CloudSearch is better for searching, if it gets popular
@@ -120,3 +126,7 @@ https://cheatography.com/
 
 # read later maybe
 https://stackoverflow.com/questions/57190892/how-to-not-display-navbar-on-specific-pages
+
+# Docker
+https://www.geeksforgeeks.org/how-to-dockerize-a-reactjs-app/
+https://medium.com/mozilla-club-bbsr/dockerizing-a-mern-stack-web-application-ebf78babf136#:~:text=To%20run%20our%20entire%20application%20together%2C%20i.e%20run,named%20docker-compose.yml.%20Write%20these%20contents%20into%20the%20file.

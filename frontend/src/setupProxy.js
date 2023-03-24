@@ -4,11 +4,18 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
+  console.log('Proxy middleware has been initialized.');
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://localhost:4000',
+      target: 'http://backend:4000',
       changeOrigin: true,
+      onProxyReq: (proxyReq, req, res) => {
+        console.log('Proxy request URL:', req.url);
+      },
+      onProxyRes: (proxyRes, req, res) => {
+        console.log('Proxy response status code:', proxyRes.statusCode);
+      },
     })
   );
 };

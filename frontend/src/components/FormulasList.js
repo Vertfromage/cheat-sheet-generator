@@ -15,9 +15,13 @@ const FormulasList = () =>{
         // ToDo: should search again based on new searchBy value
     }
 
+    // Might want to fix warning about dependencies: 
+    //https://bobbyhadz.com/blog/react-hook-useeffect-has-missing-dependency#:~:text=React%20Hook%20useEffect%20has%20a%20missing%20dependency%20error,or%20move%20the%20variable%20inside%20the%20useEffect%20hook.
     useEffect(()=>{
         handleSearchChange(searchTerm)
-    },[formulas])
+        // temporary fix...
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[formulas ])
 
     const handleSearchTermChange = (e) =>{
         setSearchTerm(e.target.value)

@@ -6,8 +6,8 @@ const FAQ = () => {
   return (
     <Container>
      <h2>⭐ FAQ ⭐</h2>
-     <h3>⭐ How do I make sure the forumulas I add are formatted correctly? ⭐</h3>
-     <p>You can either search for a formula already in the database and drag it onto your page, or you can add a formula using the form, if you use the form. To make sure it's formatted correctly you can add your MathJax math inside $...$ for inline or $$...$$ for block, alternatively you can also use \(...\) for inline and \[...\] for block. Here is a good <a href='https://matheducators.meta.stackexchange.com/questions/93/mathjax-basic-tutorial-and-quick-reference' target="_blank">MathJax quick start guide</a> </p>
+     <h3>⭐ How do I make sure the formulas I add are formatted correctly? ⭐</h3>
+     <p>You can either search for a formula already in the database and drag it onto your page, or you can add a formula using the form, if you use the form. To make sure it's formatted correctly you can add your MathJax math inside $...$ for inline or $$...$$ for block, alternatively you can also use \(...\) for inline and \[...\] for block. Here is a good <a href='https://matheducators.meta.stackexchange.com/questions/93/mathjax-basic-tutorial-and-quick-reference' target="_blank"  rel="noreferrer">MathJax quick start guide</a> </p>
      <h3>⭐ What can I do with this app? ⭐</h3>
      <b><p>You can:</p></b>
       <ol>

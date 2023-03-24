@@ -53,3 +53,11 @@ Pythagorean Theorem
 $a^2+b^2=c^2$
 area of a rectangle
 $a = l\times w$
+
+# Docker
+-Frontend
+docker build -f Dockerfile.dev -t frontend-formula:0.1 .
+docker run -d -it --rm -p 3000:3000 --name frontend-formula 62ffbe917f1f
+-Backend
+docker build -t backend-image -f Dockerfile.backend .
+docker run -d -p 4000:4000 --name backend-container backend-image

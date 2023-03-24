@@ -30,15 +30,15 @@ function PageBox({pageId, name}) {
                 // get page from database based off id
                 if(pageId){
                     console.log("delete"+pageId)
-                    const response = await fetch('api/pages/'+pageId,{
+                    await fetch('api/pages/'+pageId,{
                         method: 'DELETE'
                     })
 
                     // remove page from user.pages
-                    user.pages = user.pages.filter((p)=>JSON.parse(p).pageId != pageId)
+                    user.pages = user.pages.filter((p)=>JSON.parse(p).pageId !== pageId)
           
                     // send updated user to database
-                    const updateResponse = await updateUser({id:user.id, pages: user.pages})
+                    await updateUser({id:user.id, pages: user.pages})
 
                     // update in context
                     dispatchUser({type: 'SET_USER',payload:user})

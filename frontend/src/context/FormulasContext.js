@@ -19,7 +19,7 @@ export const formulasReducer = (state, action) => {
         case 'DELETE_FORMULA':
             return{
                 // get rid of workout we deleted from our state using filter
-                formulas: state.formulas.filter((f)=>f.id !=action.payload.id)
+                formulas: state.formulas.filter((f)=>f.id !==action.payload.id)
             }
         default: return state
     }

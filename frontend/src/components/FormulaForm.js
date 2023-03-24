@@ -1,10 +1,9 @@
-import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, TextField } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { useFormulasContext } from "../hooks/useFormulasContext";
-import { v4 as uuid } from 'uuid';
-import { usePageContext } from "../hooks/usePageContext";
-import { Container } from "@mui/system";
+import { Button, Checkbox, FormControlLabel, FormGroup, FormLabel, TextField } from '@mui/material';
 import { MathJax } from "better-react-mathjax";
+import React, { useEffect, useState } from 'react';
+import { v4 as uuid } from 'uuid';
+import { useFormulasContext } from "../hooks/useFormulasContext";
+import { usePageContext } from "../hooks/usePageContext";
 
 const FormulaForm = () => {
     const {dispatch} = useFormulasContext()

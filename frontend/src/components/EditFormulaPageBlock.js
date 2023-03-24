@@ -21,6 +21,7 @@ const EditFormulaPageBlock = (props) => {
         setFormula(e.target.value)
     }
 
+    // ToDo: Bug... duplicate id, should be overwriting, but instead getting 2 copies
     const handleSubmit = () =>{
         editFormula.name = name
         editFormula.formula = formula

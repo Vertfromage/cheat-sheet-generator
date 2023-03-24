@@ -19,12 +19,12 @@ export const pageReducer = (state, action) => {
         case 'DELETE_PAGE_FORMULA':
             return{
                 // get rid of workout we deleted from our state using filter
-                formulas: state.formulas.filter((f)=>f.id !=action.payload.id)
+                formulas: state.formulas.filter((f)=>f.id !==action.payload.id)
             }
         case 'UPDATE_PAGE_FORMULA':
             return{
                 // new updated verion of object with the currect state minus the past verion of the object
-                formulas: [action.payload, ...state.formulas.filter((f)=>f.id !=action.payload)]
+                formulas: [action.payload, ...state.formulas.filter((f)=>f.id !==action.payload.id)]
             }
         default: return state
     }

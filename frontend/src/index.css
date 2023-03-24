@@ -123,3 +123,15 @@ code {
     font-size: 10pt;
   }
 }
+
+.logo{
+  text-decoration:none;
+}
+
+.bannerAd{
+  width: 100%;
+  outline: solid;
+  outline-color: #333;
+  outline-width: 2px;
+  border-radius: 25px;
+}

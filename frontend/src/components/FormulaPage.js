@@ -5,15 +5,14 @@ import { Responsive as ResponsiveGridLayout } from "react-grid-layout";
 import FormulaPageBlock from "./FormulaPageBlock";
 
 // context
-import { useUserContext } from "../hooks/useUserContext"
 import { usePageContext } from "../hooks/usePageContext";
+import { useUserContext } from "../hooks/useUserContext";
 //Stylesheets for react-grid-layout 
-import "/node_modules/react-grid-layout/css/styles.css";
-import "/node_modules/react-resizable/css/styles.css";
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { Container } from "@mui/system";
 import SavePage from "./SavePage";
+import "/node_modules/react-grid-layout/css/styles.css";
+import "/node_modules/react-resizable/css/styles.css";
 
 
 // Style for modal
