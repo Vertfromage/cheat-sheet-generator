@@ -97,11 +97,12 @@ const FormulasPage = () =>{
       <div id="only-on-print">
         {
           // To show depending on if payment was received
-          paid ? true : <div><img src={require('../media/img/leap.png')}></img><div className="footer">Made with FormulaFactory.com</div><div className="header">Made with FormulaFactory.com</div></div>
+          paid ? true : <div><img src={require('../media/img/leap.png')} alt="Dancing woman covers page if not paid"></img><div className="footer">Made with FormulaFactory.com</div><div className="header">Made with FormulaFactory.com</div></div>
         }
         
       </div>
       <div id="no-print">
+    <h2>Hi, {user.name ? user.name : user.email}</h2>
      <Button variant="outlined" onClick={handleEditButtonClick}>Edit {edit ? 'OFF': 'ON'}</Button>
      <Button variant="outlined" onClick={handlePrintButtonClick}>Print</Button>
      <Button variant="outlined" onClick={handleSaveButtonClick} >Save</Button>

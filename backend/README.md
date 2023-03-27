@@ -55,9 +55,17 @@ area of a rectangle
 $a = l\times w$
 
 # Docker
+# Separately
 -Frontend
-docker build -f Dockerfile.dev -t frontend-formula:0.1 .
+docker build -f Dockerfile -t frontend-formula:0.1 .
 docker run -d -it --rm -p 3000:3000 --name frontend-formula 62ffbe917f1f
 -Backend
-docker build -t backend-image -f Dockerfile.backend .
+docker build -t backend-image -f Dockerfile .
 docker run -d -p 4000:4000 --name backend-container backend-image
+
+# With docker compose
+docker-compose up --build
+docker tag imagefffrontend:latest vertfromage/fffrontend:latest
+docker tag imageffbackend:latest vertfromage/ffbackend:latest
+docker image push vertfromage/fffrontend:latest
+docker image push vertfromage/ffbackend:latest

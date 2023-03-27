@@ -23,6 +23,7 @@ const EditFormulaPageBlock = (props) => {
 
     // ToDo: Bug... duplicate id, should be overwriting, but instead getting 2 copies
     const handleSubmit = () =>{
+        setError("")
         editFormula.name = name
         editFormula.formula = formula
         dispatchPage({type: 'UPDATE_PAGE_FORMULA',payload: editFormula})

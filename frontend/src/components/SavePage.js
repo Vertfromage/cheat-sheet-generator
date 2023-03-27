@@ -59,9 +59,9 @@ function SavePage() {
     }
 
     // toDo for existing page... 
-    const updatePage = () =>{
+    // const updatePage = () =>{
 
-    }
+    // }
 
     const updateUser = async (input) =>{
         const response = await fetch('api/users/', {
