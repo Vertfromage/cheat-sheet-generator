@@ -3,6 +3,18 @@ const saltRounds = 10
 const axios = require('axios')
 require('dotenv').config()
 
+// SNS
+const AWS = require('aws-sdk');
+// create SNS object
+const config = { 
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION,
+    sessionToken: process.env.AWS_SESSION_TOKEN
+  };
+AWS.config.update(config)
+const TOPIC_ARN = "arn:aws:sns:us-east-1:805096564949:RememberToStudy"
+
 // Might have to start over, prof said use OAuth
 //https://www.techtarget.com/searchapparchitecture/definition/OAuth
 // https://oauth.net/getting-started/
@@ -43,6 +55,16 @@ const login = async (req, res)=>{
 }
 }
 
+const runSNS = async (params) => {
+    // Create SNS service object.
+    const sns = new AWS.SNS();
+
+    sns.subscribe(params, (err, data) => {
+        if (err) console.log(err);
+        else console.log(data);
+      });
+  }
+
 const register = async (req, res)=>{
     // get variables from req
     const {pass, email, name} = req.body
@@ -56,6 +78,19 @@ const register = async (req, res)=>{
 
         if(response.status===200){
             console.log(response.data)
+
+            try{
+                // subscribe to SNS - * Not working bc need credentials *
+                const params = {
+                    Protocol: "email" /* required */,
+                    TopicArn: TOPIC_ARN, //TOPIC_ARN
+                    Endpoint: email, //EMAIL_ADDRESS
+                    };
+                runSNS(params);
+            }catch(e){
+                console.log("Failed to subscribe to sns")
+                console.log(e.message)
+            }
             // send token
             res.status(200).json({ token: 'testing123', userId: response.data.id, pages:response.data.pages})
         }else{

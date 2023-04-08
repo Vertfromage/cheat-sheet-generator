@@ -53,6 +53,8 @@ Pythagorean Theorem
 $a^2+b^2=c^2$
 area of a rectangle
 $a = l\times w$
+exponents
+$a^0=1\\a^1=1\\a^{-1}= \frac1a\\(a^m)^n=(a^n)^m\\a^ma^n=a^{m+n} $
 
 # Docker
 # Separately

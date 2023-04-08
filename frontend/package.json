@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-sdk/client-cognito-identity": "^3.306.0",
+    "@aws-sdk/client-s3": "^3.306.0",
+    "@aws-sdk/client-sns": "^3.306.0",
+    "@aws-sdk/credential-provider-cognito-identity": "^3.306.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.0",
@@ -48,5 +52,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://backend:4000"
 }

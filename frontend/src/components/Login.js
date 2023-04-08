@@ -31,7 +31,7 @@ function Login({setToken}) {
         
         if(checkInputsLogin()){
             console.log("retrieving token...")
-            const result = await loginUser({email, password}) 
+            const result = await loginUser({email, password})
             if(result.token){
                 console.log(result)
                 dispatchUser({type: 'SET_USER',payload:{id:result.userId, email: email, pages: result.pages}})  
@@ -49,6 +49,7 @@ function Login({setToken}) {
             const pass = password
             const result = await registerUser({email, pass}) 
             if(result.token){
+                // store user state
                 dispatchUser({type: 'SET_USER',payload:{id:result.userId, email: email, pages: result.pages}})  
                 setToken({token: result.token})
             }else{
@@ -56,6 +57,8 @@ function Login({setToken}) {
             }
         }
     }
+
+
     const checkInputsLogin= () => {
         if(email ===""||password===""){
             setError("Please fill in all inputs!")
@@ -147,6 +150,7 @@ function Login({setToken}) {
             <div>
                 <Container>
                 <h2 style={{paddingLeft:'10px'}}>Register!</h2>
+                <h5>Register to use Formula Factory and get helpful study reminders!</h5>
                     <form>
                 <FormGroup>
                 <TextField 

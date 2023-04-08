@@ -8,7 +8,8 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://backend:4000',
+       target: 'http://backend:4000', 
+     // target: 'http://localhost:4000',
       changeOrigin: true,
       onProxyReq: (proxyReq, req, res) => {
         console.log('Proxy request URL:', req.url);

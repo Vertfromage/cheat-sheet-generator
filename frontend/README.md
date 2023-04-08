@@ -130,3 +130,7 @@ https://stackoverflow.com/questions/57190892/how-to-not-display-navbar-on-specif
 # Docker
 https://www.geeksforgeeks.org/how-to-dockerize-a-reactjs-app/
 https://medium.com/mozilla-club-bbsr/dockerizing-a-mern-stack-web-application-ebf78babf136#:~:text=To%20run%20our%20entire%20application%20together%2C%20i.e%20run,named%20docker-compose.yml.%20Write%20these%20contents%20into%20the%20file.
+https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/
+
+# CloudFront
+https://aws.amazon.com/cloudfront/getting-started/EC2/
