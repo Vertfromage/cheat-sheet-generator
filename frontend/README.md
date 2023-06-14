@@ -48,15 +48,13 @@ https://docs.aws.amazon.com/lambda/latest/dg/with-sns-example.html
 
 # Completed Term Requirements
 - DynamoDB [x]
-
-# ToDo Term Requirements
-- Docker and Elastic Instance []
-- Lambda []
-- SNS [] 
-- AWS Backup []
-- VPC Virtual Private Cloud []
-- Working app to demo []
-- Recording of demo video []
+- Docker and Elastic Instance [x]
+- Lambda [x]
+- SNS [x] 
+- AWS Backup [x]
+- VPC Virtual Private Cloud [x]
+- Working app to demo [x]
+- Recording of demo video [x]
 
 
 # Completed Features 
