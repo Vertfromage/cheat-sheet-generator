@@ -5,7 +5,7 @@ A math page formatting solution for students and professionals. A platform that 
 Cheat Sheet Generator is a project I made for Cloud Computing, a 4th-year university course in the Winter of 2022 at Dalhousie University.
 
 # Presentation
-This is the presentation I did for my course: https://youtu.be/NnyJIa2vvnk You may want to skip ahead to the demo because we were required to do a ASW walkthrough and a code walkthrought so it's very long. The demo starts at 17:55.
+This is the presentation I did for my course: https://youtu.be/NnyJIa2vvnk You may want to skip ahead to the demo because we were required to do a AWS walkthrough and a code walkthrough so it's very long. The demo starts at 17:55.
 
 ## Docker
 For the rest of the sections I will assume you didn't use docker but this section is for if you want to use docker. 
